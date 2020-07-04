@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Forex | Options | Crypto | Real Time Market Data | OATREX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Welcome to the new world of forex, crypto, options and more, with over 23 years of experience.">
+    <link rel="stylesheet" href="https://use.typekit.net/bhw2bat.css">
+    <link rel="stylesheet" href="assets\css\common.2a655f79ac4d.css">
+    <link rel="stylesheet" href="assets\css\oanda.ac22928323d1.css">
+    <meta name="apple-mobile-web-app-title" content="OATREX">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\favicon-180x180.194a0a67fabc.png">
+    <link rel="shortcut icon" href="assets\images\favicon.b426a6fb60da.ico">
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer=""></script>
+    <script src="assets\js\jquery.220afd743d9e.js" defer=""></script>
+    <script src="assets\js\vue.47220dbcb227.js" defer=""></script>
+    <script src="assets\js\common.2b9a03c02903.js" defer=""></script>
+    <script src="ssets\js\instantpage.31a81fa6cd68.js" type="module" defer=""></script>
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="has-risk-disclaimer--bottom" id="top" onload="startTime()">
+    <div id="scroll-wrap">
+        <div id="nav-occlude"></div>
+        <div id="cookie-bar" class="bar bar--cookie bar--smaller js-cookie bar--background-black cookie-bar--top"
+            data-alert-id="accept-cookie">
+            <div class="bar__container">
+                <div class="bar__row">
+                    <div class="bar__contents">
+                        <div class="rich-text">
+                            <p>We use a range of cookies to give you the best browsing experience. By continuing to use
+                                this website, you agree to our use of cookies.</p>
+                        </div>
+                        <a href="#" class="js-close btn btn--primary btn--green btn--rectangle bar__close--desktop">
+                            OK
+                        </a>
+                        <i class="bar__close material-icons js-close bar__close--mobile">close</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-primary">
+            <div class="container">
+                <div class="row js-primary-marker">
+                    <div class="js-marker slide__marker"></div>
+                    <a class="navigation-primary__logo" href="index.html">
+                        <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="Logo">
+                    </a>
+                    <div class="navigation-primary__business-selector">
+                        <div class="">
+                            <div class="dropdown-link" id="clockbox"></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                        function GetClock() {
+                            var d = new Date();
+                            var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+                            var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
+                            if (nmin <= 9) nmin = "0" + nmin;
+                            if (nsec <= 9) nsec = "0" + nsec;
+
+                            var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + "";
+                            document.getElementById('clockbox').innerHTML = clocktext;
+                        }
+
+                        GetClock();
+                        setInterval(GetClock, 1000);
+                    </script>
+
+
+                    <div class="navigation-primary__local">
+                        <div class="local-nav js-dropdown-group">
+                            <div class="js-local-nav-width local-nav__container">
+                                <div class="js-dropdown dropdown">
+                                    <span class="dropdown-link js-dropdown-toggle">
+                                        <i class="material-icons">help</i>
+                                        Help
+                                        <i class="dropdown-arrow material-icons ">expand_more</i>
+                                    </span>
+                                    <div class="js-dropdown-target dropdown__container">
+                                        <div class="dropdown__height">
+                                            <ul class="js-ref-height dropdown__content">
+                                                <li>
+                                                    <a href="mailto:frontdesk@OATREX.com">
+                                                        <i class="material-icons">email</i>
+                                                        Email
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-secondary js-navigation-secondary " data-scroll="relative">
+            <div class="navigation-secondary__container container">
+                <div class="navigation-secondary__top">
+                    <div class="navigation-secondary__hamburger-menu js-offCanvasToggle">
+                        <div class="icons">
+                            <span class="navigation-secondary__hamburger-link open"><i
+                                    class="navigation-secondary__hamburger-link open material-icons">menu</i></span>
+                            <span class="navigation-secondary__hamburger-link close"><i
+                                    class="material-icons">close</i></span>
+                        </div>
+                    </div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.htm">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OANDA Logo">
+                        </a>
+                    </div>
+                    <div class="user-menu user-menu--mobile">
+                        <a href="register\index.htm#/sign-up/demo" class="btn btn--link">Sign Up<a>
+                                <a href="/apply" class="btn btn--primary btn--blue btn--rectangle">Start trading</a>
+                    </div>
+                </div>
+                <div class="navigation-secondary__row js-secondary-nav-parent">
+                    <div id="tray"></div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.html">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OANDA Logo">
+                        </a>
+                    </div>
+                    <nav class="navigation-secondary__nav js-secondary-nav" data-lvlset="">
+                        <h2 class="nav-title">Trading</h2>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                        </div>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                            <div class="navigation-aditional__link js-nav-list-item" data-lvlget="1">
+                                <span class="js-nav-child">
+                                    <i class="material-icons left">help</i>
+                                    Help
+                                    <i class="material-icons ">keyboard_arrow_right</i>
+                                </span>
+                                <div class="menu-group">
+                                    <div class="menu-group__container">
+                                        <div class="menu-group__link-list menu-group__link-list-1 nav-list js-nav-list"
+                                            data-lvlget="0">
+                                            <span class="nav-title nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Back
+                                            </span>
+                                            <div class="menu-group__link js-group-link">
+
+                                                <a href="mailto:frontdesk@OATREX.com">
+                                                    <i class="material-icons left">email</i>
+                                                    Email
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-marker slide__marker"></div>
+                        <div class="navigation-secondary__main js-nav-list" data-lvlget="0">
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="about"><span class="badge-wrap">About Us</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="getting started"><span class="badge-wrap">Getting Started</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="account-types"><span class="badge-wrap">Account Types</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown js-menu-dropdown js-nav-list-item ">
+                                <span class="navigation-secondary__toggle js-menu-dropdown-toggle js-nav-child">
+                                    <span class="badge-wrap">Trading</span><i
+                                        class="material-icons dropdown-arrow ">expand_more</i>
+                                </span>
+                                <div class="menu-group js-menu-group ">
+                                    <div class="menu-group__container js-menu-group-container js-menu-group-height">
+                                        <div class="menu-group__link-list menu-group__link-list-1 js-ref-height js-menu-dropdown-list js-nav-list nav-list"
+                                            data-lvlget="1">
+                                            <span class="nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Learn</span>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="funding-and-withdrawal" class="">Funding & Withdrawal</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="security" class="">Security</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="privacy-policy" class="">Privacy Policy</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="terms-and-conditions" class="">Terms & Conditions</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="user-menu ">
+                        <a href="sign-in" class="btn btn--link">Sign In</a>
+                        <a href="sign-up" class="btn btn--primary btn--blue btn--rectangle">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="block background--full-width background--gradient_blue-light  ">
+                <div class="block__container">
+                    <div class="content-cards
+                    
+                    
+                    
+                    ">
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--overline">
+                                        <span class="overline">Trading</span>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h1>Funding and withdrawals</h1>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--subtitle">
+                                        <h4>It is simple and straightforward to deposit and withdraw funds to and from
+                                            your OATREX trading account. Funds can be deposited using debit card (backed
+                                            by MasterCard, Visa or Discover), bank transfer, Bitcoin and Perfect Money. You can withdraw funds using debit card, bank wire transfer and bitcoin.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-center    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Hero Funding" height="749"
+                                        src="media\images\hero-fund-withdraw.max-870x870.png" width="870">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                     content-cards--equal-height
+                    
+                    
+                    ">
+                        <div class="content-cards__card content-cards__card--single-padding reading-width ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-center    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h2>Funding</h2>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>To initiate your first deposit into your OANDA trading account, simply
+                                                log in to &#x27;manage
+                                                    funds&#x27; using your OATREXA account details.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                     content-cards--equal-height
+                    
+                     content-cards--align-top
+                     content-cards--wrapped">
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\debit_credit_card.max-120x120.png"
+                                                width="60" height="60" alt="Debit card icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Debit card</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>We accept debit cards backed by MasterCard, Visa and Discover. There is a
+                                                USD$20,000 maximum limit per calendar month.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\world.max-120x120.png" width="60"
+                                                height="60" alt="Bank Wire Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Bank wire transfer</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>It takes one to three business days to deposit funds via domestic wire
+                                                transfer and up to five business days for international wire transfers.
+                                                There is no minimum or maximum deposit limit. You may be charged a
+                                                service fee by your bank and intermediary bank for transferring funds
+                                                into your OATREXA trading account.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\check.max-120x120.png" width="60"
+                                                height="60" alt="Check Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Bitcoin</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>To deposit funds to your account via bitcoin, simply click on "Deposit" when logged in to your account. Fill out the amount you will like to deposit in the base currency on your account and submit your request. You should get presented a QR Code you can scan directly from your bitcoin wallet and make your deposit. Deposits via bitcoin take only a few miniutes to get processed to your account and you get a higher welcome bonus on deposits via bitcoin</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left    background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\bank.max-120x120.png" width="60" height="60"
+                                                alt="Cost of Trading Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Perfect Money</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Deposit via Perfect money takes only a few minutes to get processed to your trading account with minimal processing fee on your transfer. However, this method of deposit is not available to residents of the United States</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                     content-cards--equal-height
+                    
+                    
+                    ">
+                        <div class="content-cards__card content-cards__card--single-padding reading-width ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-center    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Third-party deposits: to receive funds from a third party, you will first
+                                                need to set up a oint
+                                                    account with that party. Select the “instantly add” option to
+                                                expedite deposits via wire transfer, Bitcoin, Perfect money.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                     content-cards--equal-height
+                    
+                    
+                    ">
+                        <div class="content-cards__card content-cards__card--single-padding reading-width ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h2>Withdrawals</h2>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>You can withdraw funds from your OATREX account via debit card, bank
+                                                wire transfer and Bitcoin. Funds can be withdrawn by logging in to ‘manage funds’
+                                                using your OATREX Trade account details. Remember: withdrawals are
+                                                subject to our hierarchy rule and taxation. If you have deposited funds using
+                                                multiple methods, you must exhaust the total deposit amounts first by
+                                                debit card, and then followed by bank wire transfer and bitcoin.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                     content-cards--equal-height
+                    
+                    
+                    ">
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\debit_credit_card.max-120x120.png"
+                                                width="60" height="60" alt="Debit card icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Debit card</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>It takes up to three business days for funds to be processed into your
+                                                account. The total amount you can withdraw into your debit card(s)
+                                                cannot be more than the amount you originally deposited using your debit
+                                                card(s). Any funds remaining in your account after the original amount
+                                                has been withdrawn can be taken out using an alternative method, such as
+                                                a bank wire transfer.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\world.max-120x120.png" width="60"
+                                                height="60" alt="Bank Wire Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Bank wire transfer</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>To withdraw funds via bank transfer, your bank account must be in the
+                                                same name as your OATREX trading account. It takes between one and two
+                                                business days to withdraw funds via bank wire transfer within the US and
+                                                up to five business days for international withdrawals. You must confirm
+                                                that you are the owner of the bank account to which you wish to withdraw
+                                                funds. You can do this in the form of a wire transfer deposit from the
+                                                bank account (not all bank transfers can provide required bank details
+                                                to confirm account ownership), or by submitting documentation. If you
+                                                send funds via ACH, the fee attached to your withdrawal request will be
+                                                removed during processing and funds will be sent at no charge.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block call-to-action background--full-width align-center ">
+                <div class="call-to-action__primary background--gradient_blue-green background--text ">
+                    <div class="block__container">
+                        <div class="call-to-action__primary-content">
+                            <div class="call-to-action__primary-cta">
+                                <h2>Ready to start trading? Open an account in minutes</h2>
+                                <div class="button-group">
+                                    <a href="sign-up" class="btn btn--primary btn--blue">Create account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="call-to-action__secondary background--gradient_blue-dark background--text ">
+                    <div class="block__container">
+                        <div class="rich-text">
+                            <p>Already have a live trading account? It&#x27;s easy to fund your account using one of the
+                                following payment methods.</p>
+                        </div>
+                        <div class="call-to-action__secondary__funding-sources">
+                            <img alt="Mastercard Logo" height="62" src="media/images/mastercard_logo.width-100.png" width="100">
+                            <img alt="Discover Logo" height="62" src="media/images/discover_logo.width-100.png" width="100">
+                            <img alt="Bank Transfer Logo" height="62" src="media/images/Bank_transfer_logo.width-100.png" width="100">
+                            <img alt="Visa Logo" height="62" src="media/images/visa_logo.width-100.png" width="100">
+                            <img alt="Wire Transfer Logo" height="62" src="media/images/Wire_transfer_logo.width-100.png" width="100">
+                            <img alt="Ach Logo" height="62" src="media/images/ach_logo.width-100.png" width="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block block--faq js-faq">
+                <div class="block__container block--faq__container">
+                    <h2>Frequently asked questions</h2>
+                    <div class="block--faq__category">
+                        <div class="block--faq__question js-question">
+                            <div class="block--faq__question-toggle js-question-toggle">
+                                <i class="material-icons">add</i>
+                                <h4>What are OATREXA&#39;s hours of operation?</h4>
+                            </div>
+                            <div class="block--faq__question-body js-question-body">
+                                <div class="block--faq__question-content js-question-content">
+                                    <div class="rich-text">
+                                        <p>Our hours of operation coincide with the global financial markets. In the US,
+                                            trading is available from approximately 5pm Sunday to 5pm Friday (New York
+                                            time). Please note: these times are subject to change during daylight
+                                            savings time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block--faq__question js-question">
+                            <div class="block--faq__question-toggle js-question-toggle">
+                                <i class="material-icons">add</i>
+                                <h4>What are the deposit options to fund my OATREXA account for forex trading?</h4>
+                            </div>
+                            <div class="block--faq__question-body js-question-body">
+                                <div class="block--faq__question-content js-question-content">
+                                    <div class="rich-text">
+                                        <p>Our deposit options vary based on the OATREX division with which you hold your
+                                            account. Please check the relevant <a
+                                                href="funding-and-withdrawal">deposit funds</a> section
+                                            for more details on how to fund your account.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block--faq__question js-question">
+                            <div class="block--faq__question-toggle js-question-toggle">
+                                <i class="material-icons">add</i>
+                                <h4>How secure is trading with OATREX</h4>
+                            </div>
+                            <div class="block--faq__question-body js-question-body">
+                                <div class="block--faq__question-content js-question-content">
+                                    <div class="rich-text">
+                                        <p>Trading with OATREX is completely secure and protected. OATREX uses the globally recognized SSL (Secure Sockets Layer) security system which encrypts all credit card payments over the web. This system is automatic and fully protected.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block--faq__question js-question">
+                            <div class="block--faq__question-toggle js-question-toggle">
+                                <i class="material-icons">add</i>
+                                <h4>Am I required to install any software to trade on OATREX?</h4>
+                            </div>
+                            <div class="block--faq__question-body js-question-body">
+                                <div class="block--faq__question-content js-question-content">
+                                    <div class="rich-text">
+                                        <p>There is NO software installation necessary to trade on OATREX.com. The platform is 100% web reliant and can be accessed anywhere in the world.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        <a href="#top" id="scroll-to-top" class="hidden"><i class="material-icons"
+                aria-hidden="true">arrow_upward</i></a>
+        <footer>
+            <div class="footer__secondary">
+                <div class="contact-strip">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo logo-strapline--left">
+                                <span>Currency goes by</span>
+                                <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="OATREXA Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__secondary">
+                <div class="disclaimer">
+                    <div class="container">
+                        <div class="disclaimer__container">
+                            <div class="row">
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p>© 2002 - 2020 OATREX Corporation. All rights reserved.
+                                            &quot;OATREX&quot;,
+                                            &quot;fxTrade&quot; and OATREX&#x27;s &quot;fx&quot; family of trademarks are
+                                            owned by OATREX Corporation. All other trademarks appearing on this
+                                            website
+                                            are the property of their respective owners.</p>
+                                        <p>Leveraged trading in foreign currency contracts or other off-exchange
+                                            products on margin carries a level of risk that may not be suitable for
+                                            every investor. We advise that you seek professional help before entering
+                                            this market.
+                                            for you in light of your personal circumstances. You may lose part of your
+                                            investment. Information on this website is general in nature. We recommend
+                                            that
+                                            you fully understand the
+                                            risks involved before trading. Trading through an online platform carries
+                                            additional risks. Refer to our <a href="/resources/legal/">legal
+                                                section</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p><b>OATREX Corporation</b> is a registered Futures Commission Merchant and
+                                            Retail Foreign Exchange Dealer with the <a
+                                                href="http://www.cftc.gov/index.htm">Commodity Futures Trading
+                                                Commission</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="risk-disclaimer"
+                class="risk-disclaimer risk-disclaimer--colour-light bar bar--smaller risk-disclaimer--bottom">
+                <div class="bar__container">
+                    <div class="block__container--inner">
+                        <div class="rich-text">
+                            <p>Trading FX & Crypto on margin is high risk and may not be suitable for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

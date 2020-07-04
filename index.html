@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Forex | Options | Crypto | Real Time Market Data | OATREX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Welcome to the new world of forex, crypto, options and more, with over 23 years of experience.">
+    <link rel="stylesheet" href="https://use.typekit.net/bhw2bat.css">
+    <link rel="stylesheet" href="assets\css\common.2a655f79ac4d.css">
+    <link rel="stylesheet" href="assets\css\oanda.ac22928323d1.css">
+    <meta name="apple-mobile-web-app-title" content="OATREX">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\favicon-180x180.194a0a67fabc.png">
+    <link rel="shortcut icon" href="assets\images\favicon.b426a6fb60da.ico">
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer=""></script>
+    <script src="assets\js\jquery.220afd743d9e.js" defer=""></script>
+    <script src="assets\js\vue.47220dbcb227.js" defer=""></script>
+    <script src="assets\js\common.2b9a03c02903.js" defer=""></script>
+    <script src="ssets\js\instantpage.31a81fa6cd68.js" type="module" defer=""></script>
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="has-risk-disclaimer--bottom" id="top" onload="startTime()">
+        <div id="nav-occlude"></div>
+        <div id="cookie-bar" class="bar bar--cookie bar--smaller js-cookie bar--background-black cookie-bar--top"
+            data-alert-id="accept-cookie">
+            <div class="bar__container">
+                <div class="bar__row">
+                    <div class="bar__contents">
+                        <div class="rich-text">
+                            <p>We use a range of cookies to give you the best browsing experience. By continuing to use
+                                this website, you agree to our use of cookies.</p>
+                        </div>
+                        <a href="#" class="js-close btn btn--primary btn--green btn--rectangle bar__close--desktop">
+                            OK
+                        </a>
+                        <i class="bar__close material-icons js-close bar__close--mobile">close</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-primary">
+            <div class="container">
+                <div class="row js-primary-marker">
+                    <div class="js-marker slide__marker"></div>
+                    <a class="navigation-primary__logo" href="index.html">
+                        <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="Logo">
+                    </a>
+                    <div class="navigation-primary__business-selector">
+                        <div class="">
+                            <div class="dropdown-link" id="clockbox"></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                        function GetClock() {
+                            var d = new Date();
+                            var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+                            var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
+                            if (nmin <= 9) nmin = "0" + nmin;
+                            if (nsec <= 9) nsec = "0" + nsec;
+
+                            var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + "";
+                            document.getElementById('clockbox').innerHTML = clocktext;
+                        }
+
+                        GetClock();
+                        setInterval(GetClock, 1000);
+                    </script>
+                        
+                        
+                    <div class="navigation-primary__local">
+                        <div class="local-nav js-dropdown-group">
+                            <div class="js-local-nav-width local-nav__container">
+                                <div class="js-dropdown dropdown">
+                                    <span class="dropdown-link js-dropdown-toggle">
+                                        <i class="material-icons">help</i>
+                                        Help
+                                        <i class="dropdown-arrow material-icons ">expand_more</i>
+                                    </span>
+                                    <div class="js-dropdown-target dropdown__container">
+                                        <div class="dropdown__height">
+                                            <ul class="js-ref-height dropdown__content">
+                                                <li>
+                                                    <a href="mailto:frontdesk@OATREX.com">
+                                                        <i class="material-icons">email</i>
+                                                        Email
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-secondary js-navigation-secondary " data-scroll="relative">
+            <div class="navigation-secondary__container container">
+                <div class="navigation-secondary__top">
+                    <div class="navigation-secondary__hamburger-menu js-offCanvasToggle">
+                        <div class="icons">
+                            <span class="navigation-secondary__hamburger-link open"><i
+                                    class="navigation-secondary__hamburger-link open material-icons">menu</i></span>
+                            <span class="navigation-secondary__hamburger-link close"><i
+                                    class="material-icons">close</i></span>
+                        </div>
+                    </div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.htm">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OANDA Logo">
+                        </a>
+                    </div>
+                    <div class="user-menu user-menu--mobile">
+                        <a href="register\index.htm#/sign-up/demo" class="btn btn--link">Sign Up<a>
+                        <a href="/apply" class="btn btn--primary btn--blue btn--rectangle">Start trading</a>
+                    </div>
+                </div>
+                <div class="navigation-secondary__row js-secondary-nav-parent">
+                    <div id="tray"></div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.html">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OATREXA Logo">
+                        </a>
+                    </div>
+                    <nav class="navigation-secondary__nav js-secondary-nav" data-lvlset="">
+                        <h2 class="nav-title">Trading</h2>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                        </div>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                            <div class="navigation-aditional__link js-nav-list-item" data-lvlget="1">
+                                <span class="js-nav-child">
+                                    <i class="material-icons left">help</i>
+                                    Help
+                                    <i class="material-icons ">keyboard_arrow_right</i>
+                                </span>
+                                <div class="menu-group">
+                                    <div class="menu-group__container">
+                                        <div class="menu-group__link-list menu-group__link-list-1 nav-list js-nav-list"
+                                            data-lvlget="0">
+                                            <span class="nav-title nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Back
+                                            </span>
+                                            <div class="menu-group__link js-group-link">
+
+                                                <a href="mailto:frontdesk@OATREX.com">
+                                                    <i class="material-icons left">email</i>
+                                                    Email
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-marker slide__marker"></div>
+                        <div class="navigation-secondary__main js-nav-list" data-lvlget="0">
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="about"><span class="badge-wrap">About Us</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="getting started"><span class="badge-wrap">Getting Started</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="account-types"><span class="badge-wrap">Account Types</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown js-menu-dropdown js-nav-list-item ">
+                                <span class="navigation-secondary__toggle js-menu-dropdown-toggle js-nav-child">
+                                    <span class="badge-wrap">Trading</span><i
+                                        class="material-icons dropdown-arrow ">expand_more</i>
+                                </span>
+                                <div class="menu-group js-menu-group ">
+                                    <div class="menu-group__container js-menu-group-container js-menu-group-height">
+                                        <div class="menu-group__link-list menu-group__link-list-1 js-ref-height js-menu-dropdown-list js-nav-list nav-list"
+                                            data-lvlget="1">
+                                            <span class="nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Learn</span>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="funding-and-withdrawal"
+                                                    class="">Funding & Withdrawal</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="security"
+                                                    class="">Security</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="privacy-policy"
+                                                    class="">Privacy Policy</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="terms-and-conditions"
+                                                    class="">Terms & Conditions</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="user-menu ">
+                        <a href="sign-in" class="btn btn--link">Sign In</a>
+                        <a href="sign-up" class="btn btn--primary btn--blue btn--rectangle">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="block background--full-width background--gradient_blue-light  ">
+                <div class="block__container">
+                    <div class="content-cards
+                
+                
+                
+                ">
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--overline">
+                                        <span class="overline">Trading</span>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h1>Automate Your Trading</h1>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--subtitle">
+                                        <h4>Awarded the World&#39;s Best Retail FX and Crypto trading Platform (FX-Sky a-FX Awards 2018)
+                                        </h4>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>We offer competitive spreads on over 100 forex pairs and crypto currencies including all the majors
+                                                and minors. Our range of platforms include the award-winning OATREX Trade
+                                                platform, as well as MetaTrader 4 - the preferred platform for forex and Crypto
+                                                traders globally.</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--ctas">
+                                        <div class="button-group">
+                                            <a href="sign-up" class="btn btn--primary btn--blue">Create account</a>
+                                            <a href="Sign-in"
+                                                class="btn btn--link">Sign In</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-center    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Hero Forex Pairs Icon" height="870"
+                                        src="media\images\hero-forex-pairs.max-870x870.png" width="870">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                 content-cards--equal-height
+                
+                 content-cards--align-top
+                ">
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\send_funds_2.max-120x120.png" width="60"
+                                                height="60" alt="Pricing Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Standard and premium accounts</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Opt for our spread-only pricing account, or find out if you qualify for
+                                                core pricing plus commission with a premium trading account.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\graph_up_down.max-120x120.png" width="60"
+                                                height="60" alt="Spreads Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>2 pricing models</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Our spreads go as low as 0.0 pips^, helping to ensure that you benefit
+                                                from even the smallest price moves in the forex and crypto markets.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left  content-cards__card--rounded  background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media/images/global_security_1.max-120x120.png" width="60"
+                                                height="60" alt="Regulated Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Fully regulated broker</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>We are a fully regulated forex broker, with offices in nine regions
+                                                globally. We support regulatory oversight of the retail trading industry
+                                                and the protection of our clients.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                 content-cards--equal-height
+                
+                
+                ">
+                        <div class="content-cards__card content-cards__card--single-padding reading-width ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-center    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h2>Popular forex pairs</h2>
+
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--live_rates">
+                                        <script
+                                            src="https://prodstorage.azureedge.net/Scripts/jquery.signalR-2.4.0.min.js"
+                                            defer=""></script>
+                                        <script
+                                            src="https://dashboard.acuitytrading.com/Widgets/lib/@1.0.0/widget-core-oanda.js"
+                                            defer=""></script>
+                                        <div id="live-rates-1ce02c6814e1453590e9568335621977" class="live-rates__table">
+                                        </div>
+                                        <script>
+                                            window.addEventListener('load', function () {
+                                                AcuityWidgets.globals({
+                                                    apikey: '4b12e6bb-7ecd-49f7-9bbc-2e03644ce41f',
+                                                    locale: 'en-US'
+                                                });
+
+                                                AcuityWidgets.CreateWidget(
+                                                    'OandaLiveRates',
+                                                    document.getElementById('live-rates-1ce02c6814e1453590e9568335621977'),
+                                                    {
+
+                                                        instrumentType: "currency",
+
+
+                                                        instruments: ["EUR_USD", "USD_CAD", "USD_JPY", "NZD_USD", "GBP_USD", "AUD_USD", "USD_CHF", "USD_TRY", "USD_MXN"],
+
+                                                        region: "OC",
+                                                        urlTemplate: "/us-en/trading/instruments/{instrument}/",
+                                                        instrumentsWithLink: ["EUR_USD", "USD_CAD", "USD_JPY", "NZD_USD", "GBP_USD", "AUD_USD", "USD_CHF", "USD_TRY", "USD_MXN"]
+                                                    }
+                                                ).mount();
+                                            });
+                                        </script>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--ctas">
+                                        <div class="button-group">
+                                            <a href="..\spreads-margin\index.htm"
+                                                class="btn btn--secondary btn--blue">View all pairs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  background--image background--video "
+                style='background-image: url("media/images/video-background.original.jpg")'>
+                <div class="video-embed-wrapper">
+                    <div class="js-vimeo-id" id-url="https://vimeo.com/333329044"></div>
+                </div>
+                <div class="block__container">
+                    <div class="content-cards
+                
+                
+                
+                ">
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h2>How does currency trading work?</h2>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Currency trading is the buying or selling of one country’s currency in
+                                                exchange for another. The Foreign Exchange market is one of the most liquid markets in the
+                                                world, with a trading volume of $6 trillion per day. The US dollar is
+                                                the most widely traded currency in the world.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Transparent" height="600"
+                                        src="media\images\transparent600x600.max-870x870.png" width="600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                 content-cards--equal-height
+                
+                
+                ">
+                        <div class="content-cards__card content-cards__card--single-padding reading-width ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h2>Benefits of Currency & Crypto trading</h2>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Currencies and Crypto is traded on margin, meaning you can gain a potentially higher
+                                                market exposure by putting down just a small percentage of the full
+                                                value of your trade. With currency trading, you can speculate when currency and crypto
+                                                prices are rising as well as falling as compared to other currencies and crypto.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h2>Pricing tiers and liquidity providers</h2>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>We offer two pricing models: spread-only and core pricing plus
+                                                commission. Our pricing models are clear and transparent. Find out about
+                                                our two pricing options and see which one you qualify for. The pricing
+                                                engine aggregates live prices, in real time, from our liquidity
+                                                providers and calculates a mid-point. A custom-built pricing algorithm
+                                                automatically calculates the spread symmetrically around the mid-point
+                                                for each tradable instrument on our trading platform. This mid-point
+                                                fluctuates throughout the day as wholesale prices change.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  ">
+                <div class="block__container">
+                    <div class="content-cards
+                 content-cards--equal-height
+                
+                 content-cards--align-top
+                ">
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\lightning_fast_speed_black.max-120x120.png"
+                                                width="60" height="60" alt="Execution Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Executions</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Currency and Crypto prices can move quickly, especially during volatile market
+                                                conditions. Our award-winning trading platform is engineered for
+                                                reliability and speed, helping to ensure that your trade is executed at
+                                                the price you want.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media/images/transfers.max-120x120.png" width="60" height="60"
+                                                alt="Deposit Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Deposits and withdrawals</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>It is easy and straightforward to deposit and withdraw funds to and from
+                                                your OATREX account. Funds can be deposited using debit card, bank
+                                                transfer and via Bitcoin.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  js-match-media-height media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--icon">
+                                        <div class="icon icon--left">
+                                            <img src="media\images\bank.max-120x120.png" width="60" height="60"
+                                                alt="Cost of Trading Icon">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Costs of trading</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Fairness and transparency are at the heart of everything we do. We are
+                                                upfront about our charges and fees, so you always know exactly how much
+                                                you are paying when you trade with us. Learn about our costs for
+                                                depositing and withdrawing funds, bank wire transfer, spreads,
+                                                inactivity fees and more.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--dove-2  ">
+                <div class="block__container">
+                    <div class="content-cards">
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>See how currency pairs correlate with one other</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>Our AI technology analyzes global news sentiment to gauge the emotions of
+                                                the financial community towards tradable instruments.</p>
+                                            <ul>
+                                                <li><a href="eur-usd">EUR/USD</a></li>
+                                                <li><a href="usd-cad">USD/CAD</a></li>
+                                                <li><a href="usd-jpy">USD/JPY</a></li>
+                                                <li><a href="aud-usd">AUD/USD</a></li>
+                                                <li><a href="gbp-usd">GBP/USD</a></li>
+                                            </ul>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--single-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-center    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Currency Pairs Correlation" height="508"
+                                        src="media\images\new-to-forex.max-870x870.png" width="870">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block call-to-action background--full-width align-center ">
+                <div class="call-to-action__primary background--gradient_blue-green background--text ">
+                    <div class="block__container">
+                        <div class="call-to-action__primary-content">
+                            <div class="call-to-action__primary-cta">
+                                <h2>Ready to start trading? Open an account in minutes</h2>
+                                <div class="button-group">
+                                    <a href="sign-up" class="btn btn--primary btn--blue">Create account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="call-to-action__secondary background--gradient_blue-dark background--text ">
+                    <div class="block__container">
+                        <div class="rich-text">
+                            <p>Already have a live trading account? It&#x27;s easy to fund your account using one of the
+                                following payment methods.</p>
+                        </div>
+                        <div class="call-to-action__secondary__funding-sources">
+                            <img alt="Mastercard Logo" height="62" src="media/images/mastercard_logo.width-100.png" width="100">
+                            <img alt="Discover Logo" height="62" src="media/images/discover_logo.width-100.png" width="100">
+                            <img alt="Bank Transfer Logo" height="62" src="media/images/Bank_transfer_logo.width-100.png" width="100">
+                            <img alt="Visa Logo" height="62" src="media/images/visa_logo.width-100.png" width="100">
+                            <img alt="Wire Transfer Logo" height="62" src="media/images/Wire_transfer_logo.width-100.png" width="100">
+                            <img alt="Ach Logo" height="62" src="media/images/ach_logo.width-100.png" width="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <a href="#top" id="scroll-to-top" class="hidden"><i class="material-icons"
+                aria-hidden="true">arrow_upward</i></a>
+        <footer>
+            <div class="footer__secondary">
+                <div class="contact-strip">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo logo-strapline--left">
+                                <span>Currency goes by</span>
+                                <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="OANDA Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__secondary">
+                <div class="disclaimer">
+                    <div class="container">
+                        <div class="disclaimer__container">
+                            <div class="row">
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p>© 2002 - 2020 OATREX Corporation. All rights reserved. &quot;OATREX&quot;,
+                                            &quot;fxTrade&quot; and OANDA&#x27;s &quot;fx&quot; family of trademarks are
+                                            owned by OATREX Corporation. All other trademarks appearing on this website
+                                            are the property of their respective owners.</p>
+                                        <p>Leveraged trading in foreign currency contracts or other off-exchange
+                                            products on margin carries a level of risk that may not be suitable for every investor. We advise that you seek professional help before entering this market.
+                                            for you in light of your personal circumstances. You may lose part of your investment. Information on this website is general in nature. We recommend that
+                                             you fully understand the
+                                            risks involved before trading. Trading through an online platform carries
+                                            additional risks. Refer to our <a href="/resources/legal/">legal
+                                                section</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p><b>OATREX Corporation</b> is a registered Futures Commission Merchant and
+                                            Retail Foreign Exchange Dealer with the <a
+                                                href="http://www.cftc.gov/index.htm">Commodity Futures Trading
+                                                Commission</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="risk-disclaimer"
+                class="risk-disclaimer risk-disclaimer--colour-light bar bar--smaller risk-disclaimer--bottom">
+                <div class="bar__container">
+                    <div class="block__container--inner">
+                        <div class="rich-text">
+                            <p>Trading FX & Crypto on margin is high risk and may not be suitable for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

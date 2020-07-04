@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Forex | Options | Crypto | Real Time Market Data | OATREX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Welcome to the new world of forex, crypto, options and more, with over 23 years of experience.">
+    <link rel="stylesheet" href="https://use.typekit.net/bhw2bat.css">
+    <link rel="stylesheet" href="assets\css\common.2a655f79ac4d.css">
+    <link rel="stylesheet" href="assets\css\oanda.ac22928323d1.css">
+    <meta name="apple-mobile-web-app-title" content="OATREX">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\favicon-180x180.194a0a67fabc.png">
+    <link rel="shortcut icon" href="assets\images\favicon.b426a6fb60da.ico">
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer=""></script>
+    <script src="assets\js\jquery.220afd743d9e.js" defer=""></script>
+    <script src="assets\js\vue.47220dbcb227.js" defer=""></script>
+    <script src="assets\js\common.2b9a03c02903.js" defer=""></script>
+    <script src="ssets\js\instantpage.31a81fa6cd68.js" type="module" defer=""></script>
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="has-risk-disclaimer--bottom" id="top" onload="startTime()">
+    <div id="scroll-wrap">
+        <div id="nav-occlude"></div>
+        <div id="cookie-bar" class="bar bar--cookie bar--smaller js-cookie bar--background-black cookie-bar--top"
+            data-alert-id="accept-cookie">
+            <div class="bar__container">
+                <div class="bar__row">
+                    <div class="bar__contents">
+                        <div class="rich-text">
+                            <p>We use a range of cookies to give you the best browsing experience. By continuing to use
+                                this website, you agree to our use of cookies.</p>
+                        </div>
+                        <a href="#" class="js-close btn btn--primary btn--green btn--rectangle bar__close--desktop">
+                            OK
+                        </a>
+                        <i class="bar__close material-icons js-close bar__close--mobile">close</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-primary">
+            <div class="container">
+                <div class="row js-primary-marker">
+                    <div class="js-marker slide__marker"></div>
+                    <a class="navigation-primary__logo" href="index.html">
+                        <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="Logo">
+                    </a>
+                    <div class="navigation-primary__business-selector">
+                        <div class="">
+                            <div class="dropdown-link" id="clockbox"></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                        function GetClock() {
+                            var d = new Date();
+                            var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+                            var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
+                            if (nmin <= 9) nmin = "0" + nmin;
+                            if (nsec <= 9) nsec = "0" + nsec;
+
+                            var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + "";
+                            document.getElementById('clockbox').innerHTML = clocktext;
+                        }
+
+                        GetClock();
+                        setInterval(GetClock, 1000);
+                    </script>
+
+
+                    <div class="navigation-primary__local">
+                        <div class="local-nav js-dropdown-group">
+                            <div class="js-local-nav-width local-nav__container">
+                                <div class="js-dropdown dropdown">
+                                    <span class="dropdown-link js-dropdown-toggle">
+                                        <i class="material-icons">help</i>
+                                        Help
+                                        <i class="dropdown-arrow material-icons ">expand_more</i>
+                                    </span>
+                                    <div class="js-dropdown-target dropdown__container">
+                                        <div class="dropdown__height">
+                                            <ul class="js-ref-height dropdown__content">
+                                                <li>
+                                                    <a href="mailto:frontdesk@OATREX.com">
+                                                        <i class="material-icons">email</i>
+                                                        Email
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-secondary js-navigation-secondary " data-scroll="relative">
+            <div class="navigation-secondary__container container">
+                <div class="navigation-secondary__top">
+                    <div class="navigation-secondary__hamburger-menu js-offCanvasToggle">
+                        <div class="icons">
+                            <span class="navigation-secondary__hamburger-link open"><i
+                                    class="navigation-secondary__hamburger-link open material-icons">menu</i></span>
+                            <span class="navigation-secondary__hamburger-link close"><i
+                                    class="material-icons">close</i></span>
+                        </div>
+                    </div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.htm">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OATREX Logo">
+                        </a>
+                    </div>
+                    <div class="user-menu user-menu--mobile">
+                        <a href="register\index.htm#/sign-up/demo" class="btn btn--link">Sign Up<a>
+                                <a href="/apply" class="btn btn--primary btn--blue btn--rectangle">Start trading</a>
+                    </div>
+                </div>
+                <div class="navigation-secondary__row js-secondary-nav-parent">
+                    <div id="tray"></div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.html">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OATREX Logo">
+                        </a>
+                    </div>
+                    <nav class="navigation-secondary__nav js-secondary-nav" data-lvlset="">
+                        <h2 class="nav-title">Trading</h2>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                        </div>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                            <div class="navigation-aditional__link js-nav-list-item" data-lvlget="1">
+                                <span class="js-nav-child">
+                                    <i class="material-icons left">help</i>
+                                    Help
+                                    <i class="material-icons ">keyboard_arrow_right</i>
+                                </span>
+                                <div class="menu-group">
+                                    <div class="menu-group__container">
+                                        <div class="menu-group__link-list menu-group__link-list-1 nav-list js-nav-list"
+                                            data-lvlget="0">
+                                            <span class="nav-title nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Back
+                                            </span>
+                                            <div class="menu-group__link js-group-link">
+
+                                                <a href="mailto:frontdesk@OATREX.com">
+                                                    <i class="material-icons left">email</i>
+                                                    Email
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-marker slide__marker"></div>
+                        <div class="navigation-secondary__main js-nav-list" data-lvlget="0">
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="about"><span class="badge-wrap">About Us</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="getting started"><span class="badge-wrap">Getting Started</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="account-types"><span class="badge-wrap">Account Types</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown js-menu-dropdown js-nav-list-item ">
+                                <span class="navigation-secondary__toggle js-menu-dropdown-toggle js-nav-child">
+                                    <span class="badge-wrap">Trading</span><i
+                                        class="material-icons dropdown-arrow ">expand_more</i>
+                                </span>
+                                <div class="menu-group js-menu-group ">
+                                    <div class="menu-group__container js-menu-group-container js-menu-group-height">
+                                        <div class="menu-group__link-list menu-group__link-list-1 js-ref-height js-menu-dropdown-list js-nav-list nav-list"
+                                            data-lvlget="1">
+                                            <span class="nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Learn</span>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="funding-and-withdrawal" class="">Funding & Withdrawal</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="security" class="">Security</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="privacy-policy" class="">Privacy Policy</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="terms-and-conditions" class="">Terms & Conditions</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="user-menu ">
+                        <a href="sign-in" class="btn btn--link">Sign In</a>
+                        <a href="sign-up" class="btn btn--primary btn--blue btn--rectangle">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="block background--full-width background--gradient_blue-dark  background--image  background--text"
+                style='background-image: url("media/images/billboard-history1-2499x7152x_QNodcOD.original.jpg")'>
+                <div class="block__container">
+                    <div class="content-cards
+                             content-cards--equal-height
+                            
+                            
+                            ">
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    ">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--overline">
+                                        <span class="overline">WHY OATREX?</span>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h1>From tech start-up to a global corporation</h1>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>An award-winning global company offering leading currency solutions for
+                                                both retail and corporate clients. Our vision is to transform how our
+                                                clients can meet all their currency needs.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--white  ">
+                <div class="block__container">
+                    <div class="content-cards
+                             content-cards--equal-height
+                            
+                            
+                            ">
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--dove-1 content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Trading Card" height="870" src="media\images\forex.max-870x870.jpg"
+                                        width="869">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Trading</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>We offer clients the opportunity to trade a broad range of financial
+                                                products with Crypto and Forex in the US and Japan; Forex and CFDs and Options (contracts for
+                                                difference) in Canada, UK, EMEA, APAC and Australia. Our award-winning
+                                                platform offers exceptional execution with sophisticated trading tools
+                                                and advanced charting packages with an extensive range of leading edge
+                                                indicators and drawing tools powered by TradingView.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--dove-1 content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Exchange Rate Data Card" height="870"
+                                        src="media\images\exchange.max-870x870.jpg" width="869">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Currency data &amp; analytics</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--text">
+                                        <div class="rich-text">
+                                            <p>As a global leader in corporate FX solutions and Crypto, we provide the gold
+                                                standard in foreign exchange and Crypto data via our exchange rates API and
+                                                Historical Currency Converter. Our exchange rates API is trusted by
+                                                thousands of global companies and delivers data automatically on 200+
+                                                currencies with access to 25 central bank exchange rates. Daily
+                                                averages, real-time (spot), tick-level, forward rates and more are
+                                                delivered automatically for clients into their ERP, TMS, digital
+                                                product, app or website. Our historical currency converter provides
+                                                clients with up to 25 years of historical exchange rates across 38,000
+                                                currency pairs.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block background--full-width background--transparent  background--image "
+                style='background-image: url("media/images/group-our-vision.original.jpg")'>
+                <div class="block__container">
+                    <div class="content-cards
+                            
+                            
+                            
+                            ">
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--white content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                </div>
+                                <div class="content-cards__card__content" style="border-color: transparent">
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>Our vision:</h3>
+                                    </div>
+                                    <div
+                                        class="content-cards__card__content-block content-cards__card__content-block--title">
+                                        <h3>&quot;We aim to transform all aspects of how the world interacts with
+                                            currencies, whether that be trading or utilizing currency data and
+                                            information.&quot;</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-cards__card content-cards__card--double-padding  ">
+                            <div
+                                class="content-cards__card__inner background--transparent content-cards__card--align-left    background--text">
+                                <div class="media  media--no-padding">
+                                    <img alt="Transparent" height="600"
+                                        src="media\images\transparent600x600.max-870x870.png" width="600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <a href="#top" id="scroll-to-top" class="hidden"><i class="material-icons"
+                aria-hidden="true">arrow_upward</i></a>
+        <footer>
+            <div class="footer__secondary">
+                <div class="contact-strip">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo logo-strapline--left">
+                                <span>Currency goes by</span>
+                                <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="OATREX Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__secondary">
+                <div class="disclaimer">
+                    <div class="container">
+                        <div class="disclaimer__container">
+                            <div class="row">
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p>© 2002 - 2020 OATREX Corporation. All rights reserved.
+                                            &quot;OATREX&quot;,
+                                            &quot;fxTrade&quot; and OATREX&#x27;s &quot;fx&quot; family of trademarks are
+                                            owned by OATREX Corporation. All other trademarks appearing on this
+                                            website
+                                            are the property of their respective owners.</p>
+                                        <p>Leveraged trading in foreign currency contracts or other off-exchange
+                                            products on margin carries a level of risk that may not be suitable for
+                                            every investor. We advise that you seek professional help before entering
+                                            this market.
+                                            for you in light of your personal circumstances. You may lose part of your
+                                            investment. Information on this website is general in nature. We recommend
+                                            that
+                                            you fully understand the
+                                            risks involved before trading. Trading through an online platform carries
+                                            additional risks. Refer to our <a href="/resources/legal/">legal
+                                                section</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p><b>OATREX Corporation</b> is a registered Futures Commission Merchant and
+                                            Retail Foreign Exchange Dealer with the <a
+                                                href="http://www.cftc.gov/index.htm">Commodity Futures Trading
+                                                Commission</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="risk-disclaimer"
+                class="risk-disclaimer risk-disclaimer--colour-light bar bar--smaller risk-disclaimer--bottom">
+                <div class="bar__container">
+                    <div class="block__container--inner">
+                        <div class="rich-text">
+                            <p>Trading FX & Crypto on margin is high risk and may not be suitable for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

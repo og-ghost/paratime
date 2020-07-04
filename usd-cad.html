@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Forex | Options | Crypto | Real Time Market Data | OATREX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Welcome to the new world of forex, crypto, options and more, with over 23 years of experience.">
+    <link rel="stylesheet" href="https://use.typekit.net/bhw2bat.css">
+    <link rel="stylesheet" href="assets\css\common.2a655f79ac4d.css">
+    <link rel="stylesheet" href="assets\css\oanda.ac22928323d1.css">
+    <meta name="apple-mobile-web-app-title" content="OATREX">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\favicon-180x180.194a0a67fabc.png">
+    <link rel="shortcut icon" href="assets\images\favicon.b426a6fb60da.ico">
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer=""></script>
+    <script src="assets\js\jquery.220afd743d9e.js" defer=""></script>
+    <script src="assets\js\vue.47220dbcb227.js" defer=""></script>
+    <script src="assets\js\common.2b9a03c02903.js" defer=""></script>
+    <script src="ssets\js\instantpage.31a81fa6cd68.js" type="module" defer=""></script>
+    <script src="https://prodstorage.azureedge.net/Scripts/jquery.signalR-2.4.0.min.js" defer=""></script>
+    <script src="https://dashboard.acuitytrading.com/Widgets/lib/@1.0.0/widget-core-oanda.js" defer=""></script>
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="has-risk-disclaimer--bottom" id="top" onload="startTime()">
+    <div id="scroll-wrap">
+        <div id="nav-occlude"></div>
+        <div id="cookie-bar" class="bar bar--cookie bar--smaller js-cookie bar--background-black cookie-bar--top"
+            data-alert-id="accept-cookie">
+            <div class="bar__container">
+                <div class="bar__row">
+                    <div class="bar__contents">
+                        <div class="rich-text">
+                            <p>We use a range of cookies to give you the best browsing experience. By continuing to use
+                                this website, you agree to our use of cookies.</p>
+                        </div>
+                        <a href="#" class="js-close btn btn--primary btn--green btn--rectangle bar__close--desktop">
+                            OK
+                        </a>
+                        <i class="bar__close material-icons js-close bar__close--mobile">close</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <region-alert-banner subfolder-region-id="1" region-selector-url="https://www.oanda.com/region-selector/"
+            region-selector-text="Choose country or region" btn-text="Continue">
+            <template v-slot:msg="">
+                Choose another country or region to see content specific to your location
+            </template>
+        </region-alert-banner>
+        <div class="navigation-primary">
+            <div class="container">
+                <div class="row js-primary-marker">
+                    <div class="js-marker slide__marker"></div>
+                    <a class="navigation-primary__logo" href="index.html">
+                        <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="Logo">
+                    </a>
+                    <div class="navigation-primary__business-selector">
+                        <div class="">
+                            <div class="dropdown-link" id="clockbox"></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                        function GetClock() {
+                            var d = new Date();
+                            var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+                            var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
+                            if (nmin <= 9) nmin = "0" + nmin;
+                            if (nsec <= 9) nsec = "0" + nsec;
+
+                            var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + "";
+                            document.getElementById('clockbox').innerHTML = clocktext;
+                        }
+
+                        GetClock();
+                        setInterval(GetClock, 1000);
+                    </script>
+
+
+                    <div class="navigation-primary__local">
+                        <div class="local-nav js-dropdown-group">
+                            <div class="js-local-nav-width local-nav__container">
+                                <div class="js-dropdown dropdown">
+                                    <span class="dropdown-link js-dropdown-toggle">
+                                        <i class="material-icons">help</i>
+                                        Help
+                                        <i class="dropdown-arrow material-icons ">expand_more</i>
+                                    </span>
+                                    <div class="js-dropdown-target dropdown__container">
+                                        <div class="dropdown__height">
+                                            <ul class="js-ref-height dropdown__content">
+                                                <li>
+                                                    <a href="mailto:frontdesk@OATREX.com">
+                                                        <i class="material-icons">email</i>
+                                                        Email
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-secondary js-navigation-secondary " data-scroll="relative">
+            <div class="navigation-secondary__container container">
+                <div class="navigation-secondary__top">
+                    <div class="navigation-secondary__hamburger-menu js-offCanvasToggle">
+                        <div class="icons">
+                            <span class="navigation-secondary__hamburger-link open"><i
+                                    class="navigation-secondary__hamburger-link open material-icons">menu</i></span>
+                            <span class="navigation-secondary__hamburger-link close"><i
+                                    class="material-icons">close</i></span>
+                        </div>
+                    </div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.htm">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OANDA Logo">
+                        </a>
+                    </div>
+                    <div class="user-menu user-menu--mobile">
+                        <a href="register\index.htm#/sign-up/demo" class="btn btn--link">Sign Up<a>
+                                <a href="/apply" class="btn btn--primary btn--blue btn--rectangle">Start trading</a>
+                    </div>
+                </div>
+                <div class="navigation-secondary__row js-secondary-nav-parent">
+                    <div id="tray"></div>
+                    <div class="navigation-secondary__logo">
+                        <a href="index.html">
+                            <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OANDA Logo">
+                        </a>
+                    </div>
+                    <nav class="navigation-secondary__nav js-secondary-nav" data-lvlset="">
+                        <h2 class="nav-title">Trading</h2>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                        </div>
+                        <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                            <div class="navigation-aditional__link js-nav-list-item" data-lvlget="1">
+                                <span class="js-nav-child">
+                                    <i class="material-icons left">help</i>
+                                    Help
+                                    <i class="material-icons ">keyboard_arrow_right</i>
+                                </span>
+                                <div class="menu-group">
+                                    <div class="menu-group__container">
+                                        <div class="menu-group__link-list menu-group__link-list-1 nav-list js-nav-list"
+                                            data-lvlget="0">
+                                            <span class="nav-title nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Back
+                                            </span>
+                                            <div class="menu-group__link js-group-link">
+
+                                                <a href="mailto:frontdesk@OATREX.com">
+                                                    <i class="material-icons left">email</i>
+                                                    Email
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-marker slide__marker"></div>
+                        <div class="navigation-secondary__main js-nav-list" data-lvlget="0">
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="about"><span class="badge-wrap">About Us</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="getting started"><span class="badge-wrap">Getting Started</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown">
+                                <span class="navigation-secondary__toggle">
+                                    <a href="account-types"><span class="badge-wrap">Account Types</span></a>
+                                </span>
+                            </div>
+                            <div class="navigation-secondary__dropdown js-menu-dropdown js-nav-list-item ">
+                                <span class="navigation-secondary__toggle js-menu-dropdown-toggle js-nav-child">
+                                    <span class="badge-wrap">Trading</span><i
+                                        class="material-icons dropdown-arrow ">expand_more</i>
+                                </span>
+                                <div class="menu-group js-menu-group ">
+                                    <div class="menu-group__container js-menu-group-container js-menu-group-height">
+                                        <div class="menu-group__link-list menu-group__link-list-1 js-ref-height js-menu-dropdown-list js-nav-list nav-list"
+                                            data-lvlget="1">
+                                            <span class="nav-title js-nav-parent" data-lvlget="0"><i
+                                                    class="material-icons left">arrow_back</i>
+                                                Learn</span>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="funding-and-withdrawal" class="">Funding & Withdrawal</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="security" class="">Security</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="privacy-policy" class="">Privacy Policy</a>
+                                            </div>
+                                            <div class="menu-group__link js-nav-list-item  ">
+                                                <a href="terms-and-conditions" class="">Terms & Conditions</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="user-menu ">
+                        <a href="sign-in" class="btn btn--link">Sign In</a>
+                        <a href="sign-up" class="btn btn--primary btn--blue btn--rectangle">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="instrument-detail">
+                <div class="instrument-detail__container">
+                    <div id="instrument-detail__widget"></div>
+                    <div class="instrument-detail__body">
+                        <div class="rich-text">
+                            <h2><b>USD to CAD trading</b></h2>
+                            <p>The extremely high volume of cross-border trading activities between the USA and Canada
+                                has firmly established the USD to CAD currency pair as one of the most liquid on the
+                                global market. This pair is known also as the “Loonie” due to the image of a loon
+                                depicted on the CA$1 coin.</p>
+                            <p>Much like both the <a href="https://www.oanda.com/us-en/trading/instruments/aud-usd/">AUD
+                                    to USD</a> and <a
+                                    href="https://www.oanda.com/us-en/trading/instruments/nzd-usd/">NZD to USD</a>
+                                pairs, the performance of the USD to CAD pair is influenced by international commodities
+                                trading. The Canadian dollar is seen as a commodity currency due to the country’s
+                                considerable natural resources: oil, timber and gas.</p>
+                            <p>Oil is one resource in particular that can have the most profound effect on the USD CAD
+                                rate. Canada is the world’s fourth largest producer of oil, supplying <a
+                                    href="https://www.nrcan.gc.ca/science-and-data/data-and-analysis/energy-data-and-analysis/energy-facts/crude-oil-facts/20064">3.5
+                                    million barrels per day to the USA</a> in 2018 – a figure that represented 48% of
+                                the USA’s total crude oil imports for that year.</p>
+                            <h3><b>USD CAD news</b></h3>
+                            <p>USD CAD news is heavily aligned to trading on the global commodities market –
+                                particularly oil. It is a key indicator of both the health of Canada’s currency and
+                                economy in general. A <a
+                                    href="https://www.macleans.ca/economy/economicanalysis/life-at-20-dollar-oil-nation-divided/">collapse
+                                    in the price of oil</a> at the end of 2015 had a huge effect on the USD CAD rate as
+                                the Canadian dollar weakened from a position of parity against the US dollar.</p>
+                            <p>More recently, the <a
+                                    href="https://www.theguardian.com/us-news/2019/may/17/trump-tariffs-steel-canada-mexico">imposition
+                                    of tariffs by the Trump administration</a> on Canada – and vice-versa in response –
+                                left the USD CAD rate more exposed to instabilities in the market.</p>
+                            <h3><b>USD to CAD chart</b></h3>
+                            <p>Track the latest trends and movement in the USD CAD rate with our dynamic chart, which is
+                                designed to offer insights into performance over the last week, day, hour and month.
+                                Using our unique pricing engine, we calculate the latest mid-market rates and update the
+                                USD to CAD chart in real time to help our clients make informed decisions with their
+                                currency investments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                window.addEventListener('load', function () {
+                    AcuityWidgets.globals({
+                        apikey: '4b12e6bb-7ecd-49f7-9bbc-2e03644ce41f',
+                        locale: "en-US"
+                    });
+                    AcuityWidgets.CreateWidget(
+                        'OandaInstrumentPage',
+                        document.getElementById('instrument-detail__widget'),
+                        {
+                            region: 'OC',
+                            instrumentName: 'USD_CAD',
+                            urlTemplate: "us-en.html",
+                            signUpURL: "https://www.OATREX.com/register/#/sign-up",
+                            demoSignUpURL: "https://www.OATREX.com/register/#/sign-up/demo"
+                        }
+                    ).mount();
+                })
+            </script>
+        </main>
+        <a href="#top" id="scroll-to-top" class="hidden"><i class="material-icons"
+                aria-hidden="true">arrow_upward</i></a>
+        <footer>
+            <div class="footer__secondary">
+                <div class="contact-strip">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo logo-strapline--left">
+                                <span>Currency goes by</span>
+                                <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="OANDA Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__secondary">
+                <div class="disclaimer">
+                    <div class="container">
+                        <div class="disclaimer__container">
+                            <div class="row">
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p>© 2002 - 2020 OATREX Corporation. All rights reserved.
+                                            &quot;OATREX&quot;,
+                                            &quot;fxTrade&quot; and OANDA&#x27;s &quot;fx&quot; family of trademarks are
+                                            owned by OATREX Corporation. All other trademarks appearing on this
+                                            website
+                                            are the property of their respective owners.</p>
+                                        <p>Leveraged trading in foreign currency contracts or other off-exchange
+                                            products on margin carries a level of risk that may not be suitable for
+                                            every investor. We advise that you seek professional help before entering
+                                            this market.
+                                            for you in light of your personal circumstances. You may lose part of your
+                                            investment. Information on this website is general in nature. We recommend
+                                            that
+                                            you fully understand the
+                                            risks involved before trading. Trading through an online platform carries
+                                            additional risks. Refer to our <a href="/resources/legal/">legal
+                                                section</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p><b>OATREX Corporation</b> is a registered Futures Commission Merchant and
+                                            Retail Foreign Exchange Dealer with the <a
+                                                href="http://www.cftc.gov/index.htm">Commodity Futures Trading
+                                                Commission</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="risk-disclaimer"
+                class="risk-disclaimer risk-disclaimer--colour-light bar bar--smaller risk-disclaimer--bottom">
+                <div class="bar__container">
+                    <div class="block__container--inner">
+                        <div class="rich-text">
+                            <p>Trading FX & Crypto on margin is high risk and may not be suitable for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
