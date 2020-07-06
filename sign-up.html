@@ -1,0 +1,398 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Forex | Options | Crypto | Real Time Market Data | OATREX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Welcome to the new world of forex, crypto, options and more, with over 23 years of experience.">
+    <link rel="stylesheet" href="https://use.typekit.net/bhw2bat.css">
+    <link rel="stylesheet" href="assets\css\common.2a655f79ac4d.css">
+    <link rel="stylesheet" href="assets\css\oanda.ac22928323d1.css">
+    <meta name="apple-mobile-web-app-title" content="OATREX">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\favicon-180x180.194a0a67fabc.png">
+    <link rel="shortcut icon" href="assets\images\favicon.b426a6fb60da.ico">
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer=""></script>
+    <script src="assets\js\jquery.220afd743d9e.js" defer=""></script>
+    <script src="assets\js\vue.47220dbcb227.js" defer=""></script>
+    <script src="assets\js\common.2b9a03c02903.js" defer=""></script>
+    <script src="ssets\js\instantpage.31a81fa6cd68.js" type="module" defer=""></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+      .errorRes {
+    font-size: 15px;
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    display: none;
+}
+  </style>
+</head>
+
+<body class="bg-light has-risk-disclaimer--bottom" id="top" onload="startTime()">
+    <div id="nav-occlude"></div>
+    <div id="cookie-bar" class="bar bar--cookie bar--smaller js-cookie bar--background-black cookie-bar--top"
+        data-alert-id="accept-cookie">
+        <div class="bar__container">
+            <div class="bar__row">
+                <div class="bar__contents">
+                    <div class="rich-text">
+                        <p>We use a range of cookies to give you the best browsing experience. By continuing to use
+                            this website, you agree to our use of cookies.</p>
+                    </div>
+                    <a href="#" class="js-close btn btn--primary btn--green btn--rectangle bar__close--desktop">
+                        OK
+                    </a>
+                    <i class="bar__close material-icons js-close bar__close--mobile">close</i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-primary">
+        <div class="container">
+            <div class="row js-primary-marker">
+                <div class="js-marker slide__marker"></div>
+                <a class="navigation-primary__logo" href="index.html">
+                    <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="Logo">
+                </a>
+                <div class="navigation-primary__business-selector">
+                    <div class="">
+                        <div class="dropdown-link" id="clockbox"></div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                    function GetClock() {
+                        var d = new Date();
+                        var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+                        var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
+                        if (nmin <= 9) nmin = "0" + nmin;
+                        if (nsec <= 9) nsec = "0" + nsec;
+
+                        var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + "";
+                        document.getElementById('clockbox').innerHTML = clocktext;
+                    }
+
+                    GetClock();
+                    setInterval(GetClock, 1000);
+                </script>
+                    
+                    
+                <div class="navigation-primary__local">
+                    <div class="local-nav js-dropdown-group">
+                        <div class="js-local-nav-width local-nav__container">
+                            <div class="js-dropdown dropdown">
+                                <span class="dropdown-link js-dropdown-toggle">
+                                    <i class="material-icons">help</i>
+                                    Help
+                                    <i class="dropdown-arrow material-icons ">expand_more</i>
+                                </span>
+                                <div class="js-dropdown-target dropdown__container">
+                                    <div class="dropdown__height">
+                                        <ul class="js-ref-height dropdown__content">
+                                            <li>
+                                                <a href="mailto:frontdesk@OATREX.com">
+                                                    <i class="material-icons">email</i>
+                                                    Email
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-secondary js-navigation-secondary " data-scroll="relative">
+        <div class="navigation-secondary__container container">
+            <div class="navigation-secondary__top">
+                <div class="navigation-secondary__hamburger-menu js-offCanvasToggle">
+                    <div class="icons">
+                        <span class="navigation-secondary__hamburger-link open"><i
+                                class="navigation-secondary__hamburger-link open material-icons">menu</i></span>
+                        <span class="navigation-secondary__hamburger-link close"><i
+                                class="material-icons">close</i></span>
+                    </div>
+                </div>
+                <div class="navigation-secondary__logo">
+                    <a href="index.htm">
+                        <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OANDA Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="navigation-secondary__row js-secondary-nav-parent">
+                <div id="tray"></div>
+                <div class="navigation-secondary__logo">
+                    <a href="index.html">
+                        <img src="assets\images\oanda-logo@2x.0effe11fff4c.png" alt="OATREXA Logo">
+                    </a>
+                </div>
+                <nav class="navigation-secondary__nav js-secondary-nav" data-lvlset="">
+                    <h2 class="nav-title">Trading</h2>
+                    <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                    </div>
+                    <div class="navigation-aditional js-nav-list" data-lvlget="0">
+                        <div class="navigation-aditional__link js-nav-list-item" data-lvlget="1">
+                            <span class="js-nav-child">
+                                <i class="material-icons left">help</i>
+                                Help
+                                <i class="material-icons ">keyboard_arrow_right</i>
+                            </span>
+                            <div class="menu-group">
+                                <div class="menu-group__container">
+                                    <div class="menu-group__link-list menu-group__link-list-1 nav-list js-nav-list"
+                                        data-lvlget="0">
+                                        <span class="nav-title nav-title js-nav-parent" data-lvlget="0"><i
+                                                class="material-icons left">arrow_back</i>
+                                            Back
+                                        </span>
+                                        <div class="menu-group__link js-group-link">
+
+                                            <a href="mailto:frontdesk@OATREX.com">
+                                                <i class="material-icons left">email</i>
+                                                Email
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="js-marker slide__marker"></div>
+                    <div class="navigation-secondary__main js-nav-list" data-lvlget="0">
+                        <div class="navigation-secondary__dropdown">
+                            <span class="navigation-secondary__toggle">
+                                <a href="about"><span class="badge-wrap">About Us</span></a>
+                            </span>
+                        </div>
+                        <div class="navigation-secondary__dropdown">
+                            <span class="navigation-secondary__toggle">
+                                <a href="getting started"><span class="badge-wrap">Getting Started</span></a>
+                            </span>
+                        </div>
+                        <div class="navigation-secondary__dropdown">
+                            <span class="navigation-secondary__toggle">
+                                <a href="account-types"><span class="badge-wrap">Account Types</span></a>
+                            </span>
+                        </div>
+                        <div class="navigation-secondary__dropdown js-menu-dropdown js-nav-list-item ">
+                            <span class="navigation-secondary__toggle js-menu-dropdown-toggle js-nav-child">
+                                <span class="badge-wrap">Trading</span><i
+                                    class="material-icons dropdown-arrow ">expand_more</i>
+                            </span>
+                            <div class="menu-group js-menu-group ">
+                                <div class="menu-group__container js-menu-group-container js-menu-group-height">
+                                    <div class="menu-group__link-list menu-group__link-list-1 js-ref-height js-menu-dropdown-list js-nav-list nav-list"
+                                        data-lvlget="1">
+                                        <span class="nav-title js-nav-parent" data-lvlget="0"><i
+                                                class="material-icons left">arrow_back</i>
+                                            Learn</span>
+                                        <div class="menu-group__link js-nav-list-item  ">
+                                            <a href="funding-and-withdrawal"
+                                                class="">Funding & Withdrawal</a>
+                                        </div>
+                                        <div class="menu-group__link js-nav-list-item  ">
+                                            <a href="security"
+                                                class="">Security</a>
+                                        </div>
+                                        <div class="menu-group__link js-nav-list-item  ">
+                                            <a href="privacy-policy"
+                                                class="">Privacy Policy</a>
+                                        </div>
+                                        <div class="menu-group__link js-nav-list-item  ">
+                                            <a href="terms-and-conditions"
+                                                class="">Terms & Conditions</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+        <div class="container p-2">
+            <h1 class="rowtext-white rounded ml-1 mr-1 pl-2 mb-3 py-3" style="background-color: #071D39; color: #fff;">Welcome</h1>
+            <div class="row ml-1 mr-1">
+                <div class="col-md-4 py-5 text-white" style="background-color: #071D39;"> 
+                    <h2>Login</h2>
+                        <div class="form-group">
+                            <label for="input_email_2" >Username</label>
+                            <input type="text" class="form-control" id="user" name="input_email_2" placeholder="Enter Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="input_password_2">Password</label>
+                            <input type="password" id="pass" class="form-control" name="input_password_2" placeholder="Password">
+                        </div>
+                        <input type="submit" onclick="Click()" value="Submit" class="btn btn-primary">
+                </div>
+                <div class="col-md-8 py-5 border">
+                    <h2>Register</h2>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Mr">
+                            <label class="form-check-label" for="inlineRadio1">Mr</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-2">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Mrs">
+                            <label class="form-check-label" for="inlineRadio2">Mrs</label>
+                        </div>
+                        <div class="form-check form-check-inline mb-2">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Ms">
+                            <label class="form-check-label" for="inlineRadio3">Ms</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_fname">First Name</label>
+                            <input type="text" class="form-control" id="FirstName" placeholder="First Name *" value="" /> 
+                                <div id="emailRes" class="errorRes">first Name cannot have space and must be characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_lname">Last Name</label>
+                            <input type="text" class="form-control" id="LastName" placeholder="Last Name *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="input_email_1">Email Address</label>
+                            <input type="email" class="form-control" id="EmailAddress" placeholder="Your Email *" value="" />   
+                        </div>
+                        <div class="form-group">
+                            <label for="input_birthday">Home Address</label>
+                            <input type="homeaddress" class="form-control" id="HomeAddress" placeholder="Your Home address *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="input_birthday">Phone Number</label>
+                            <input type="text" minlength="10" maxlength="12" name="txtEmpPhone" class="form-control" id="PhoneNumber" placeholder="Your Phone *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="input_password_1">Password</label>
+                            <input type="password"  id="Password" class="form-control" name="input_password_1" aria-describedby="passwordHelp" placeholder="****" />
+                            <small id="passwordHelp" class="form-text text-muted">Your password must be 8-20 characters long, contain one upper case and one lower case letter, one number, and one special character.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_conf_password">Confirm Password</label>
+                            <input type="password" class="form-control" name="input_conf_password" placeholder="****">
+                        </div>
+                        <button onclick="Clickme()" class="btn btn-primary" >submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="block call-to-action background--full-width align-center ">
+            <div class="call-to-action__secondary background--gradient_blue-dark background--text ">
+                <div class="block__container">
+                    <div class="rich-text">
+                        <p>Already have a live trading account? It&#x27;s easy to fund your account using one of the
+                            following payment methods.</p>
+                    </div>
+                    <div class="call-to-action__secondary__funding-sources">
+                        <img alt="Mastercard Logo" height="62" src="media/images/mastercard_logo.width-100.png" width="100">
+                        <img alt="Discover Logo" height="62" src="media/images/discover_logo.width-100.png" width="100">
+                        <img alt="Bank Transfer Logo" height="62" src="media/images/Bank_transfer_logo.width-100.png" width="100">
+                        <img alt="Visa Logo" height="62" src="media/images/visa_logo.width-100.png" width="100">
+                        <img alt="Wire Transfer Logo" height="62" src="media/images/Wire_transfer_logo.width-100.png" width="100">
+                        <img alt="Ach Logo" height="62" src="media/images/ach_logo.width-100.png" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer__secondary">
+                <div class="contact-strip">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo logo-strapline--left">
+                                <span>Currency goes by</span>
+                                <img src="assets\images\oanda-logo.20eebbd07880.svg" alt="OANDA Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__secondary">
+                <div class="disclaimer">
+                    <div class="container">
+                        <div class="disclaimer__container">
+                            <div class="row">
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p>© 2002 - 2020 OATREX Corporation. All rights reserved. &quot;OATREX&quot;,
+                                            &quot;fxTrade&quot; and OANDA&#x27;s &quot;fx&quot; family of trademarks are
+                                            owned by OATREX Corporation. All other trademarks appearing on this website
+                                            are the property of their respective owners.</p>
+                                        <p>Leveraged trading in foreign currency contracts or other off-exchange
+                                            products on margin carries a level of risk that may not be suitable for every investor. We advise that you seek professional help before entering this market.
+                                            for you in light of your personal circumstances. You may lose part of your investment. Information on this website is general in nature. We recommend that
+                                             you fully understand the
+                                            risks involved before trading. Trading through an online platform carries
+                                            additional risks. Refer to our <a href="/resources/legal/">legal
+                                                section</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="disclaimer__text">
+                                    <div class="rich-text">
+                                        <p><b>OATREX Corporation</b> is a registered Futures Commission Merchant and
+                                            Retail Foreign Exchange Dealer with the <a
+                                                href="http://www.cftc.gov/index.htm">Commodity Futures Trading
+                                                Commission</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+   async function Clickme(){
+        console.log('yaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaayyyy')
+                let FirstName  = document.getElementById('FirstName').value;
+                let LastName  = document.getElementById('LastName').value;
+                let Password  = document.getElementById('Password').value;
+                let EmailAddress = document.getElementById('EmailAddress').value;
+                let PhoneNumber  = document.getElementById('PhoneNumber').value;
+                let HomeAddress  = document.getElementById('HomeAddress').value;
+                let data = {
+                    FirstName,
+                    LastName, 
+                    EmailAddress, 
+                    Password,
+                    PhoneNumber, 
+                    HomeAddress
+                    }
+console.log(data)
+    let response = await fetch('https://secure-oatrix.herokuapp.com/api/v1/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(data)
+    });
+                console.log(data)
+                let result = await response.json();
+                alert(result.message, `Your username is ${result.data.Username}`);
+    }
+    async function Click(){
+        let Username  = document.getElementById('user').value;
+        let Password  = document.getElementById('pass').value;
+        let data = {
+                    Username, 
+                    Password
+                    }
+        let response = await fetch('https://secure-oatrix.herokuapp.com/api/v1/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(data)
+    });
+                console.log(data)
+                let result = await response.json();
+                alert(result.message);
+    }
+    </script>
+</html>
